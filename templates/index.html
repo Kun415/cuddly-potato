@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ConfessCraft (Python) — 创意表白</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/build/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.154.0/examples/js/controls/OrbitControls.js"></script>
+</head>
+<body>
+  <div id="ui">
+    <h1>ConfessCraft (Python版) ❤️</h1>
+    <div class="panel">
+      <label>要表白的内容</label>
+      <textarea id="plain">你是我见过最亮的星，愿意和我一起看星吗？</textarea>
+      <label>口令（用于加密/解密）</label>
+      <input id="password" type="password" value="iloveyou" />
+      <div class="row">
+        <button id="btnEncrypt">服务器加密并生成链接</button>
+        <button id="btnCopy">复制链接</button>
+      </div>
+      <label>或在此粘贴密文并解密（URL 的 #hash）</label>
+      <input id="cipher" />
+      <div class="row">
+        <button id="btnDecrypt">前端解密并播放表白</button>
+        <button id="btnSpeak">朗读当前明文</button>
+      </div>
+      <div id="result" class="hint"></div>
+    </div>
+    <div class="panel small">
+      <img id="qr" style="height:110px" />
+      <div style="flex:1">
+        <button id="btnConfess">直接表白（尝试解密并播放）</button>
+        <button id="btnReset">重置</button>
+      </div>
+    </div>
+    <div id="status">状态：准备就绪</div>
+  </div>
+
+  <div id="canvas-container"></div>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
